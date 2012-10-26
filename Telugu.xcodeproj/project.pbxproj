@@ -15,6 +15,7 @@
 		97AAA173163550B300178403 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AAA172163550B300178403 /* AppDelegate.m */; };
 		97AAA176163550B300178403 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AAA175163550B300178403 /* ViewController.m */; };
 		97AAA179163550B300178403 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AAA177163550B300178403 /* ViewController.xib */; };
+		97AAA1871635667F00178403 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AAA1861635667F00178403 /* Store.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +23,17 @@
 		97AAA162163550B300178403 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		97AAA164163550B300178403 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		97AAA166163550B300178403 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		97AAA16A163550B300178403 /* Telugu-Info.plist */ = {isa = PBXFileReference; path = "Telugu-Info.plist"; sourceTree = "<group>"; };
+		97AAA16A163550B300178403 /* Telugu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Telugu-Info.plist"; sourceTree = "<group>"; };
 		97AAA16C163550B300178403 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		97AAA16E163550B300178403 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		97AAA170163550B300178403 /* Telugu-Prefix.pch */ = {isa = PBXFileReference; path = "Telugu-Prefix.pch"; sourceTree = "<group>"; };
-		97AAA171163550B300178403 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		97AAA170163550B300178403 /* Telugu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Telugu-Prefix.pch"; sourceTree = "<group>"; };
+		97AAA171163550B300178403 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		97AAA172163550B300178403 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		97AAA174163550B300178403 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		97AAA174163550B300178403 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		97AAA175163550B300178403 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		97AAA178163550B300178403 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		97AAA1851635667F00178403 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		97AAA1861635667F00178403 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 				97AAA172163550B300178403 /* AppDelegate.m */,
 				97AAA174163550B300178403 /* ViewController.h */,
 				97AAA175163550B300178403 /* ViewController.m */,
+				97AAA1851635667F00178403 /* Store.h */,
+				97AAA1861635667F00178403 /* Store.m */,
 				97AAA177163550B300178403 /* ViewController.xib */,
 				97AAA169163550B300178403 /* Supporting Files */,
 			);
@@ -163,6 +168,7 @@
 				97AAA16F163550B300178403 /* main.m in Sources */,
 				97AAA173163550B300178403 /* AppDelegate.m in Sources */,
 				97AAA176163550B300178403 /* ViewController.m in Sources */,
+				97AAA1871635667F00178403 /* Store.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +278,7 @@
 				97AAA17E163550B300178403 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

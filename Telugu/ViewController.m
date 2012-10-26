@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "Store.h"
 
 @implementation ViewController
+@synthesize imageView1;
+@synthesize imageView2;
 
 - (void)didReceiveMemoryWarning
 {
@@ -21,11 +24,100 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    for (Store *labels in self.view.subviews) 
+    {
+        if([labels isMemberOfClass:[Store class]])
+        {
+            UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
+            [labels addGestureRecognizer:pan];
+            [self.view bringSubviewToFront:labels];
+            [pan release];
+        }
+    }
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+-(void) handlePan:(UIPanGestureRecognizer *) sender
+{
+    if(sender.state == UIGestureRecognizerStateBegan)
+    {
+        ((Store*)sender.view).initialPoint = sender.view.center;
+//        s.initialPoint =  sender.view.center;
+//        NSLog(@"%f",s.initialPoint.x);
+//        Store *startingPoint = [[Store alloc]init];
+//        startingPoint.initialPoint = sender.view.center;
+//        NSLog(@"%f,%f",startingPoint.initialPoint.x,startingPoint.initialPoint.y);
+       
+    }
+    CGPoint translation = [sender translationInView:sender.view];
+    sender.view.center = CGPointMake(sender.view.center.x + translation.x , sender.view.center.y + translation.y);
+    [sender setTranslation:CGPointMake(0,0) inView:sender.view];
+     
+    if(sender.state == UIGestureRecognizerStateEnded)
+    {
+        
+        //imageView1
+        static int x1,y1,count1 = 1, x2,y2,count2 = 1;
+;
+        if(CGRectIntersectsRect(self.imageView1.frame, sender.view.frame) && (count1 < 10))
+        {
+            [self.imageView1 addSubview:sender.view];
+ //           [sender.view removeFromSuperview];
+            
+            sender.view.frame = CGRectMake(x1, y1, 44, 44);
+            [self.imageView1 bringSubviewToFront:sender.view];
+            if(count1 % 3 == 0)
+            {
+                y1 += 50;
+                x1 = 0;
+            }
+            else
+            {
+                x1 += 44; 
+            }
+            NSLog(@"%d",(count1 % 4));
+            count1 ++;
+            NSLog(@"%f,%f",sender.view.center.x,sender.view.center.y);
+        }
+        else if(CGRectIntersectsRect(self.imageView2.frame, sender.view.frame) && (count2 < 10))
+        {
+            [self.imageView2 addSubview:sender.view];
+            //           [sender.view removeFromSuperview];
+            
+            sender.view.frame = CGRectMake(x2, y2, 44, 44);
+            [self.imageView2 bringSubviewToFront:sender.view];
+            if(count2 % 3 == 0)
+            {
+                y2 += 50;
+                x2 = 0;
+            }
+            else
+            {
+                x2 += 44; 
+            }
+            NSLog(@"%d",(count2 % 4));
+            count2 ++;
+            NSLog(@"%f,%f",sender.view.center.x,sender.view.center.y);
+        }
+        else
+        {
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:1];
+            sender.view.center = ((Store*)sender.view).initialPoint;        
+            [UIView commitAnimations];
+        }
+
+    }
+    
 }
 
 - (void)viewDidUnload
 {
+    [self setImageView1:nil];
+    [self setImageView2:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -57,4 +149,9 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (void)dealloc {
+    [imageView1 release];
+    [imageView2 release];
+    [super dealloc];
+}
 @end
