@@ -37,7 +37,7 @@ NSArray *final;
     
   //  NSLog(@"capital:%@",capital);
     
-    randomset = [NSMutableSet set] ;
+    randomset = [NSMutableSet set];
     while ([randomset count] < 9) {
         [randomset addObject:[capital objectAtIndex:rand()%[capital count]]];
     }
@@ -45,7 +45,9 @@ NSArray *final;
     while ([randomset count] < 18) {
         [randomset addObject:[small objectAtIndex:rand()%[small count]]];
     }
-      final = [randomset allObjects];
+    
+    
+    final = [randomset allObjects];
     finalMutable = [NSMutableArray arrayWithArray:final];
    
     
