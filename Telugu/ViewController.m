@@ -33,7 +33,7 @@ NSArray *final;
     sranddev();
     
     capital =  [[NSMutableArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
-    small = [[NSMutableArray alloc]initWithObjects:@"0",@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z", nil];
+    small = [[NSMutableArray alloc]initWithObjects:@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z", nil];
     
   //  NSLog(@"capital:%@",capital);
     
@@ -93,14 +93,19 @@ NSArray *final;
 
         //imageView1
         static int x1,y1,count1 = 1, x2,y2,count2 = 1;
-
+        
         if(CGRectIntersectsRect(self.imageView1.frame, sender.view.frame) && (count1 < 10) && [capital containsObject:labelText.text] )
         {
-            
-            
+            [sender.view retain];
+            [sender.view removeFromSuperview];
             [self.imageView1 addSubview:sender.view];
-                       
+            CGPoint newlocation = [sender locationInView:self.imageView1];
+            sender.view.frame = CGRectMake(newlocation.x - 25, newlocation.y - 15, 44, 44);
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:1];
             sender.view.frame = CGRectMake(x1, y1, 44, 44);
+            [UIView commitAnimations];
+
             [self.imageView1 bringSubviewToFront:sender.view];
             if(count1 % 3 == 0)
             {
@@ -117,10 +122,16 @@ NSArray *final;
         }
         else if(CGRectIntersectsRect(self.imageView2.frame, sender.view.frame) && (count2 < 10) && [small containsObject:labelText.text])
         {
+            [sender.view retain];
+            [sender.view removeFromSuperview];
             [self.imageView2 addSubview:sender.view];
-            //           [sender.view removeFromSuperview];
+            CGPoint newlocation = [sender locationInView:self.imageView2];
+            sender.view.frame = CGRectMake(newlocation.x - 25, newlocation.y - 20, 44, 44); 
             
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:1];
             sender.view.frame = CGRectMake(x2, y2, 44, 44);
+            [UIView commitAnimations];
             [self.imageView2 bringSubviewToFront:sender.view];
             if(count2 % 3 == 0)
             {
@@ -143,9 +154,38 @@ NSArray *final;
             sender.view.center = ((Store*)sender.view).initialPoint;        
             [UIView commitAnimations];
         }
-
+        
+        //game over...
+        if(count1 == 10 && count2 == 10)
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"game over" message:@"Congratulations.." delegate:self cancelButtonTitle:@"clear" otherButtonTitles: nil];
+            [alert show];
+           
+        }
     }
     
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        
+        NSLog(@"CANCEL BUTTON");
+        
+        for (id labels in self.imageView1.subviews) {
+            [labels removeFromSuperview];
+        }
+        for (id labels in self.imageView2.subviews) {
+            [labels removeFromSuperview];
+        }
+
+        [self viewDidLoad];
+        
+//        [self.view subviews];
+//        [imageView1 removeFromSuperview];
+//        [self viewDidLoad];
+//                
+    }
 }
 
 - (void)viewDidUnload
@@ -160,6 +200,7 @@ NSArray *final;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+  
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -189,4 +230,5 @@ NSArray *final;
     [imageView2 release];
     [super dealloc];
 }
+
 @end
