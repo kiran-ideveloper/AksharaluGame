@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "ViewController.h"
 #import "Store.h"
 
@@ -15,7 +16,7 @@
 NSMutableArray *capital, *small, *finalMutable;
 NSMutableSet *randomset;
 NSArray *final;
-
+int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
 
 - (void)didReceiveMemoryWarning
 {
@@ -92,7 +93,7 @@ NSArray *final;
       
 
         //imageView1
-        static int x1,y1,count1 = 1, x2,y2,count2 = 1;
+        //static int x1,y1,count1 = 1, x2,y2,count2 = 1;
         
         if(CGRectIntersectsRect(self.imageView1.frame, sender.view.frame) && (count1 < 10) && [capital containsObject:labelText.text] )
         {
@@ -103,13 +104,13 @@ NSArray *final;
             sender.view.frame = CGRectMake(newlocation.x - 25, newlocation.y - 15, 44, 44);
             [UIView beginAnimations:nil context:NULL];
             [UIView setAnimationDuration:1];
-            sender.view.frame = CGRectMake(x1, y1, 44, 44);
+            sender.view.frame = CGRectMake(x1, yy1, 44, 44);
             [UIView commitAnimations];
 
             [self.imageView1 bringSubviewToFront:sender.view];
             if(count1 % 3 == 0)
             {
-                y1 += 50;
+                yy1 += 50;
                 x1 = 0;
             }
             else
@@ -172,19 +173,10 @@ NSArray *final;
         
         NSLog(@"CANCEL BUTTON");
         
-        for (id labels in self.imageView1.subviews) {
-            [labels removeFromSuperview];
-        }
-        for (id labels in self.imageView2.subviews) {
-            [labels removeFromSuperview];
-        }
-
-        [self viewDidLoad];
+        AppDelegate *delegate = [(AppDelegate *) [UIApplication sharedApplication] delegate];
+        [delegate reload];
         
-//        [self.view subviews];
-//        [imageView1 removeFromSuperview];
-//        [self viewDidLoad];
-//                
+        x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
     }
 }
 

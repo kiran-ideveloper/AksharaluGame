@@ -16,5 +16,6 @@
 
 @property (strong, nonatomic) ViewController *viewController;
 
+-(void) reload;
 
 @end
