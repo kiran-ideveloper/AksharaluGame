@@ -101,8 +101,9 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
 
         //imageView1
         //static int x1,y1,count1 = 1, x2,y2,count2 = 1;
-        
-        if(CGRectIntersectsRect(self.imageView1.frame, sender.view.frame) && (count1 < 10) && [capital containsObject:labelText.text] )
+        //CGRectIntersectsRect(self.imageView1.frame, sender.view.frame)
+      
+        if(CGRectContainsPoint(self.imageView1.frame, sender.view.center) && (count1 < 10) && [capital containsObject:labelText.text] )
         {
             [[sender.view retain]autorelease];
             [sender.view removeFromSuperview];
@@ -129,7 +130,7 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
             count1 ++;
             NSLog(@"%f,%f",sender.view.center.x,sender.view.center.y);
         }
-        else if(CGRectIntersectsRect(self.imageView2.frame, sender.view.frame) && (count2 < 10) && [small containsObject:labelText.text])
+        else if(CGRectContainsPoint(self.imageView2.frame, sender.view.center) && (count2 < 10) && [small containsObject:labelText.text])
         {
             [[sender.view retain]autorelease];
             [sender.view removeFromSuperview];
