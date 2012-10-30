@@ -12,10 +12,17 @@
 
 @implementation ViewController
 @synthesize imageView1;
-@synthesize imageView2;
+@synthesize imageView2,delegateShow;
+
+
+
+
 NSMutableArray *capital, *small, *finalMutable;
 NSMutableSet *randomset;
 NSArray *final;
+UILabel *labelText;
+
+
 int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
 
 - (void)didReceiveMemoryWarning
@@ -89,17 +96,18 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
      
     if(sender.state == UIGestureRecognizerStateEnded)
     {
-        UILabel *labelText = (UILabel *)sender.view;
-      
+        labelText = (UILabel *)sender.view;
+       
 
         //imageView1
         //static int x1,y1,count1 = 1, x2,y2,count2 = 1;
         
         if(CGRectIntersectsRect(self.imageView1.frame, sender.view.frame) && (count1 < 10) && [capital containsObject:labelText.text] )
         {
-            [sender.view retain];
+            [[sender.view retain]autorelease];
             [sender.view removeFromSuperview];
             [self.imageView1 addSubview:sender.view];
+          
             CGPoint newlocation = [sender locationInView:self.imageView1];
             sender.view.frame = CGRectMake(newlocation.x - 25, newlocation.y - 15, 44, 44);
             [UIView beginAnimations:nil context:NULL];
@@ -123,7 +131,7 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
         }
         else if(CGRectIntersectsRect(self.imageView2.frame, sender.view.frame) && (count2 < 10) && [small containsObject:labelText.text])
         {
-            [sender.view retain];
+            [[sender.view retain]autorelease];
             [sender.view removeFromSuperview];
             [self.imageView2 addSubview:sender.view];
             CGPoint newlocation = [sender locationInView:self.imageView2];
@@ -146,6 +154,7 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
             NSLog(@"%d",(count2 % 4));
             count2 ++;
             NSLog(@"%f,%f",sender.view.center.x,sender.view.center.y);
+            
         }
         else
         {
@@ -159,10 +168,13 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
         //game over...
         if(count1 == 10 && count2 == 10)
         {
+           
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"game over" message:@"Congratulations.." delegate:self cancelButtonTitle:@"clear" otherButtonTitles: nil];
             [alert show];
+            [alert release];
            
         }
+        
     }
     
 }
@@ -173,8 +185,8 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
         
         NSLog(@"CANCEL BUTTON");
         
-        AppDelegate *delegate = [(AppDelegate *) [UIApplication sharedApplication] delegate];
-        [delegate reload];
+        delegateShow = [[UIApplication sharedApplication] delegate];
+        [delegateShow reload];
         
         x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
     }
@@ -217,7 +229,7 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
 }
 
 - (void)dealloc {
-    
+    [labelText release];
     [imageView1 release];
     [imageView2 release];
     [super dealloc];

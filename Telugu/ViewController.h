@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class AppDelegate;
 @interface ViewController : UIViewController <UIAlertViewDelegate>
 @property (retain, nonatomic) IBOutlet UIImageView *imageView1;
 @property (retain, nonatomic) IBOutlet UIImageView *imageView2;
 
+
+@property (retain,nonatomic)    AppDelegate *delegateShow ;
 @end
