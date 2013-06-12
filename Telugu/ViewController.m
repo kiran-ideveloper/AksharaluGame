@@ -41,7 +41,7 @@ int x1 = 0,yy1 = 0,x2 = 0,y2 = 0,count1 = 1,count2 = 1;
     sranddev();
     
     capital =  [[NSMutableArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
-    small = [[NSMutableArray alloc]initWithObjects:@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z", nil];
+    small = [[NSMutableArray alloc]initWithObjects:@"అ",@"ర",@"త",@"య",@"ప",@"స",@"ద",@"గ",@"హ",@"జ",@"క",@"ల",@"ష",@"చ",@"వ",@"బ",@"న",@"మ",@"ఆ",@"శ",@"ఒ",@"ఝ",@"ఖ",@"ళ",@"క్ష",@"ణ", nil];
     
   //  NSLog(@"capital:%@",capital);
     

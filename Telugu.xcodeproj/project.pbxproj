@@ -16,6 +16,7 @@
 		97AAA176163550B300178403 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AAA175163550B300178403 /* ViewController.m */; };
 		97AAA179163550B300178403 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AAA177163550B300178403 /* ViewController.xib */; };
 		97AAA1871635667F00178403 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AAA1861635667F00178403 /* Store.m */; };
+		9F9EB28D1768D38500592A6D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9EB28C1768D38500592A6D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		97AAA178163550B300178403 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		97AAA1851635667F00178403 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
 		97AAA1861635667F00178403 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
+		9F9EB28C1768D38500592A6D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		97AAA153163550B300178403 = {
 			isa = PBXGroup;
 			children = (
+				9F9EB28C1768D38500592A6D /* Default-568h@2x.png */,
 				97AAA168163550B300178403 /* Telugu */,
 				97AAA161163550B300178403 /* Frameworks */,
 				97AAA15F163550B300178403 /* Products */,
@@ -155,6 +158,7 @@
 			files = (
 				97AAA16D163550B300178403 /* InfoPlist.strings in Resources */,
 				97AAA179163550B300178403 /* ViewController.xib in Resources */,
+				9F9EB28D1768D38500592A6D /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
